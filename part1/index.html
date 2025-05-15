@@ -66,8 +66,8 @@
 	fetch("quotes.json")
 		.then(response => response.json())
 		.then(data => {
-				document.getElementById("authorText").innerText = data.q;
-				document.getElementById("authorText").innerText = data.a;
+				document.getElementById("quoteBox").innerText = quotes.q;
+				document.getElementById("authorText").innerText = quotes.a;
 		})
 
 
