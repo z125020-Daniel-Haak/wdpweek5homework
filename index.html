@@ -64,12 +64,12 @@
       //HINT: Use fetch() to get quote from "quotes.json"
 
 	fetch("quotes.json")
-		.then(response => reponse.json);
-		.then( data => {
-			data.forEach(quote => {
-				quoteText.insertAdjacentHTML('beforeend', `<li>${quote.title}>/li>);
-			});
-		});
+		.then(response => response.json())
+		.then(data => {
+				console.log(data.q)
+				document.queryselector("#quoteBox").innerText = data.q
+		})
+					//data.q / data.a
 
     }
     newQuoteBtn.addEventListener("click", getQuote);
