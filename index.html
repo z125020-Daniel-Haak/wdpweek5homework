@@ -64,9 +64,12 @@
       //HINT: Use fetch() to get quote from "quotes.json"
 
 	fetch("quotes.json")
-		.then(quoteText => 		);
-		.then( y => {			});
-
+		.then(response => reponse.json);
+		.then( data => {
+			data.forEach(quote => {
+				quoteText.insertAdjacentHTML('beforeend', `<li>${quote.title}>/li>);
+			});
+		});
 
     }
     newQuoteBtn.addEventListener("click", getQuote);
