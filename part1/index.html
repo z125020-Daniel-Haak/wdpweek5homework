@@ -66,8 +66,11 @@
 	fetch("quotes.json")
 		.then(response => response.json())
 		.then(data => {
-				document.getElementById("quote").innerText = data.q;
-				document.getElementById("author").innerText = data.a;
+
+				let randomquote = data[Math.floor(Math.random() * data.length)];
+			
+				document.getElementById("quote").innerText = randomquote.q;
+				document.getElementById("author").innerText = randomquote.a;
 		})
 
 
