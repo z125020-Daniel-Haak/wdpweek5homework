@@ -23,9 +23,12 @@ function showQuestion() {
 
    //INPUT YOUR CODE HERE
    //HINT: Loop through each option for the current question
-  q.options.forEach((option, index) => {
+  //q.options.forEach((option, index) => {
 
-    
+    document.getElementById("A").innerText = q.option[0];
+    document.getElementById("B").innerText = q.option[1];
+    document.getElementById("C").innerText = q.option[2];
+    document.getElementById("D").innerText = q.option[3];
     
   // TODO:
   // 1. Create a button element
@@ -35,7 +38,7 @@ function showQuestion() {
   // 5. Add the button to the optionsContainer
 
     
-});
+//});
 }
 
 function checkAnswer(selectedIndex) {
