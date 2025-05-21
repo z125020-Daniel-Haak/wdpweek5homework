@@ -52,16 +52,21 @@ function checkAnswer(selectedIndex) {
 }
 
 function clearOptions() {
+
+  
+  
   // INPUT YOUR CODE HERE
   // HINT
   // 1. Clear the contents of the options container
   // 2. Disable the Next button so users can't skip ahead
 }
 
-nextBtn.addEventListener("click", () => {
+nextBtn.addEventListener("click", getNext);
 
+function getNext(){
   if (currentQuestionIndex <= 29) currentQuestionIndex++;
   if (currentQuestionIndex === 30) showResult();
+  
   // INPUT YOUR CODE HERE
   // HINT
   // 1. Move to the next question by increasing the question index
