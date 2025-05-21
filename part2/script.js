@@ -24,12 +24,17 @@ function showQuestion() {
    //INPUT YOUR CODE HERE
    //HINT: Loop through each option for the current question
   q.options.forEach((option, index) => {
+
+    
+    
   // TODO:
   // 1. Create a button element
   // 2. Set the button's text to the option
   // 3. Add a class to style it
   // 4. Add an onclick event that calls checkAnswer(index)
   // 5. Add the button to the optionsContainer
+
+    
 });
 }
 
@@ -54,6 +59,9 @@ function clearOptions() {
 }
 
 nextBtn.addEventListener("click", () => {
+
+  currentQuestionIndex++;
+  
   // INPUT YOUR CODE HERE
   // HINT
   // 1. Move to the next question by increasing the question index
