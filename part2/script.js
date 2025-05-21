@@ -60,8 +60,8 @@ function clearOptions() {
 
 nextBtn.addEventListener("click", () => {
 
-  currentQuestionIndex++;
-  
+  if (currentQuestionIndex <= 29) currentQuestionIndex++;
+  if (currentQuestionIndex === 30) showResult();
   // INPUT YOUR CODE HERE
   // HINT
   // 1. Move to the next question by increasing the question index
