@@ -7,6 +7,12 @@ const optionsContainer = document.getElementById("options");
 const nextBtn = document.getElementById("nextBtn");
 const resultBox = document.getElementById("result");
 
+const answerA = document.getElementById("A");
+const answerB = document.getElementById("B");
+const answerC = document.getElementById("C");
+const answerD = document.getElementById("D");
+let selectedIndex = 4;
+
 fetch("questions.json")
   .then(res => res.json())
   .then(data => {
@@ -25,10 +31,11 @@ function showQuestion() {
    //HINT: Loop through each option for the current question
   //q.options.forEach((option, index) => {
 
-  //  document.getElementById("A").innerText = q.option[0];
-  //  document.getElementById("B").innerText = q.option[1];
-  //  document.getElementById("C").innerText = q.option[2];
- //   document.getElementById("D").innerText = q.option[3];
+    answerA.textContent = `A: ${q.options[0]}`;
+    answerB.textContent = `B: ${q.options[1]}`;
+    answerC.textContent = `C: ${q.options[2]}`;
+    answerD.textContent = `D: ${q.options[3]}`;
+
     
   // TODO:
   // 1. Create a button element
@@ -41,22 +48,57 @@ function showQuestion() {
 //});
 }
 
+function pressA() {
+  selectedIndex = 0;
+  checkAnswer(selectedIndex);
+}
+function pressB() {
+  selectedIndex = 1;
+  checkAnswer(selectedIndex);
+}
+function pressC() {
+  selectedIndex = 2;
+  checkAnswer(selectedIndex);
+}
+function pressD() {
+  selectedIndex = 3;
+  checkAnswer(selectedIndex);
+}
+
 function checkAnswer(selectedIndex) {
   const correct = questions[currentQuestionIndex].answer;
   if (selectedIndex === correct) {
     score++;
   }
   nextBtn.disabled = false;
-  Array.from(optionsContainer.children).forEach((btn, i) => {
-    btn.disabled = true;
-    if (i === correct) btn.style.backgroundColor = "#a4edba";
-    if (i === selectedIndex && i !== correct) btn.style.backgroundColor = "#f5a3a3";
-  });
+  A.disabled = true;
+  B.disabled = true;
+  C.disabled = true;
+  D.disabled = true;
+
+  if (correct === 0) A.style.backgroundColor = "#a4edba";
+  else{A.style.backgroundColor = "#f5a3a3";}
+  if (correct === 1) B.style.backgroundColor = "#a4edba";
+  else{B.style.backgroundColor = "#f5a3a3";}
+  if (correct === 2) C.style.backgroundColor = "#a4edba";
+  else{C.style.backgroundColor = "#f5a3a3";}
+  if (correct === 3) D.style.backgroundColor = "#a4edba";
+  else{D.style.backgroundColor = "#f5a3a3";}
 }
 
 function clearOptions() {
 
-  
+  A.style.backgroundColor = "#f4f4f4";
+  B.style.backgroundColor = "#f4f4f4";
+  C.style.backgroundColor = "#f4f4f4";
+  D.style.backgroundColor = "#f4f4f4";
+
+  nextBtn.disabled = true;
+
+  A.disabled = false;
+  B.disabled = false;
+  C.disabled = false;
+  D.disabled = false;
   
   // INPUT YOUR CODE HERE
   // HINT
@@ -64,18 +106,24 @@ function clearOptions() {
   // 2. Disable the Next button so users can't skip ahead
 }
 
-//nextBtn.addEventListener("click", getNext);
+nextBtn.addEventListener("click", getNext);
+A.addEventListener("click", pressA);
+B.addEventListener("click", pressB);
+C.addEventListener("click", pressC);
+D.addEventListener("click", pressD);
 
-//function getNext(){
- // if (currentQuestionIndex <= 29) currentQuestionIndex++;
- // if (currentQuestionIndex === 30) showResult();
-  
+function getNext(){
+  if (currentQuestionIndex <= 29) currentQuestionIndex++;
+  if (currentQuestionIndex === 30) showResult();
+
+  clearOptions();
+  showQuestion();
   // INPUT YOUR CODE HERE
   // HINT
   // 1. Move to the next question by increasing the question index
   // 2. If there are questions left, show the next one
   // 3. Otherwise, call a function to show the final result
-//}
+}
 
 
 function showResult() {
