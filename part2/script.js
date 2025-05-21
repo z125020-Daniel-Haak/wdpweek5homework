@@ -25,10 +25,10 @@ function showQuestion() {
    //HINT: Loop through each option for the current question
   //q.options.forEach((option, index) => {
 
-    document.getElementById("A").innerText = q.option[0];
-    document.getElementById("B").innerText = q.option[1];
-    document.getElementById("C").innerText = q.option[2];
-    document.getElementById("D").innerText = q.option[3];
+  //  document.getElementById("A").innerText = q.option[0];
+  //  document.getElementById("B").innerText = q.option[1];
+  //  document.getElementById("C").innerText = q.option[2];
+ //   document.getElementById("D").innerText = q.option[3];
     
   // TODO:
   // 1. Create a button element
@@ -64,18 +64,18 @@ function clearOptions() {
   // 2. Disable the Next button so users can't skip ahead
 }
 
-nextBtn.addEventListener("click", getNext);
+//nextBtn.addEventListener("click", getNext);
 
-function getNext(){
-  if (currentQuestionIndex <= 29) currentQuestionIndex++;
-  if (currentQuestionIndex === 30) showResult();
+//function getNext(){
+ // if (currentQuestionIndex <= 29) currentQuestionIndex++;
+ // if (currentQuestionIndex === 30) showResult();
   
   // INPUT YOUR CODE HERE
   // HINT
   // 1. Move to the next question by increasing the question index
   // 2. If there are questions left, show the next one
   // 3. Otherwise, call a function to show the final result
-}
+//}
 
 
 function showResult() {
