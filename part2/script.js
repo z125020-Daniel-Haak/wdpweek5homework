@@ -75,7 +75,7 @@ function getNext(){
   // 1. Move to the next question by increasing the question index
   // 2. If there are questions left, show the next one
   // 3. Otherwise, call a function to show the final result
-});
+}
 
 
 function showResult() {
